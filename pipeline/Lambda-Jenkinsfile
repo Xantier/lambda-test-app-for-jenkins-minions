@@ -1,0 +1,15 @@
+pipeline {
+  agent any
+  stages {
+    stage('test') {
+      agent { label 'node-lambda'}
+      steps {
+        sh'''
+                bash --version
+                git --version
+                node --version
+                '''
+      }
+    }
+  }
+}
